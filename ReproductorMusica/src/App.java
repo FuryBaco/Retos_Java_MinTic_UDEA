@@ -50,6 +50,20 @@ public class App {
         System.out.println(ventana1.isPausado());
         //Print cancion reproduciendo
         System.out.println(ventana1.getCancionReproduciendo());
+        //Print canciones
+        System.out.println(Arrays.toString(ventana1.getCanciones()));
+        //Print canciones escogidas
+        System.out.println(Arrays.toString(cancionesEscogidas));
+        //print name of canciones escogidas according to CancionReproduciendo
+        System.out.println(cancionesEscogidas[ventana1.getCancionReproduciendo()]);
+        //set cancionReproduciendo to 10
+        ventana1.setCancionReproduciendo(10);
+        //print name of canciones escogidas according to CancionReproduciendo
+        System.out.println(cancionesEscogidas[ventana1.getCancionReproduciendo()]);
+        
+        
+
+
 
 
     }
