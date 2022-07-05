@@ -65,6 +65,9 @@ public class ReproductorMusica {
         return canciones;
     }
 
+    /**
+     * @param canciones
+     */
     public void setCanciones(String[] canciones) {
         //COMPLETE AQUÍ EL SETTER CORRESPONDIENTE
         this.canciones = canciones;
