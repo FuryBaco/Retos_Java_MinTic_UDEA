@@ -5,6 +5,7 @@ public class Guerrero extends Humano implements IAsignable {
 
     //ATRIBUTOS
     private double ataque;
+    private String clase = "Guerrero";
 
     public Guerrero(String nombre, char sexo, double vida, double ataque, double defensa, double velocidad) {
         super(nombre, sexo, vida, defensa, velocidad);
@@ -17,6 +18,10 @@ public class Guerrero extends Humano implements IAsignable {
 
     public void setAtaque(double ataque) {
         this.ataque = ataque;
+    }
+
+    public String getClase() {
+        return clase;
     }
 
     //METODOS

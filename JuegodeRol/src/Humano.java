@@ -15,6 +15,7 @@ public abstract class Humano {
         this.velocidad = velocidad;
     }
 
+    
     public String getNombre() {
         return nombre;
     }
@@ -68,4 +69,6 @@ public abstract class Humano {
                 ", velocidad=" + velocidad +
                 '}';
     }
+
+    
 }
