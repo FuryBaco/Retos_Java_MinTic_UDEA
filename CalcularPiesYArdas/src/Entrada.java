@@ -17,8 +17,9 @@ public class Entrada {
     }
 
     public void pedirPies() {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Ingrese los pies: ");
-        setPies(sc.nextDouble());
+        try (Scanner sc = new Scanner(System.in)) {
+            System.out.println("Ingrese los pies: ");
+            setPies(sc.nextDouble());
+        }
     }
 }
