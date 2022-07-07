@@ -1,4 +1,6 @@
 package controlador;
+import java.util.Arrays;
+
 import modelo.Persona;
 
 public class ControladorPersona{
@@ -71,4 +73,43 @@ public class ControladorPersona{
 
     }
   }
+
+  //eliminar persona
+  public void eliminarPersona(double cedula){
+    int cont = 0;
+    int tamanio_arreglo = this.personas.length;
+    while(cont < tamanio_arreglo){
+      if(this.personas[cont] != null){
+        if(this.personas[cont].getCedula().equals(cedula)){
+          this.personas[cont] = null;
+        }
+      }
+      cont++;
+      sortPersonas();
+    }
+  }
+
+  //sort personas so null values are at the end of the array
+  public void sortPersonas(){
+    Persona[] aux = new Persona[this.personas.length];
+    int cont = 0;
+    int conta = 0;
+    int tamanio_arreglo = this.personas.length;
+    while(cont < tamanio_arreglo){
+      if(this.personas[cont] != null){
+        aux[conta] = this.personas[cont];
+        conta++;
+      }
+      cont++;
+    }
+    cont = 0;
+    while(cont < tamanio_arreglo){
+      if(aux[cont] != null){
+        this.personas[cont] = aux[cont];
+      }
+      cont++;
+    }
+  }
+
+
 }

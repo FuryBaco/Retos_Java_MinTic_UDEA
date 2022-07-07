@@ -15,6 +15,15 @@ public class Persona{
         this.cedula = cedula;
     }
 
+    @Override
+    public String toString(){
+        String info = ("Nombre: " + this.nombre + "\n" +
+                       "Apellido: " + this.apellido + "\n" +
+                       "Edad: " + this.edad + "\n" +
+                       "Cedula: " + this.cedula + "\n");
+        return info;
+    }
+
     //Getters y Setters
 
     public String getNombre() {
