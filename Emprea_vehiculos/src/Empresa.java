@@ -70,13 +70,14 @@ public class Empresa {
                 flag = true;
             }
             cont++;
-        }while (cont < tamanio_arreglo && flag);
+        }while (cont < tamanio_arreglo && !flag);
     }
 
     
     public void solicitar_datos_carro(){
         //Creador de objeto escaner con manejador de excepciones
-        try(Scanner leer = new Scanner(System.in)){
+        Scanner leer = new Scanner(System.in);
+        try{
             System.out.println("Ingrese el color del carro: ");
             String color = leer.next();
             System.out.println("Ingrese la placa del carro: ");
@@ -101,6 +102,7 @@ public class Empresa {
     }
 
     public void menu(){
+        Scanner leer = new Scanner(System.in);
         String menu = "--------------FABRICAR CARRO--------------\n";
         menu += "1. Fabricar carro\n";
         menu += "2. Mostrar carros\n";
@@ -108,9 +110,9 @@ public class Empresa {
         menu += ">>>"; 
         int opcion = 0;           
         do{
-            try(Scanner leer = new Scanner(System.in)){
+            try{
             System.out.print(menu);
-            opcion = leer.nextInt();
+            opcion = Integer.parseInt(leer.nextLine());
             switch(opcion){
                 case 1:
                     this.solicitar_datos_carro();
@@ -129,6 +131,7 @@ public class Empresa {
                 System.out.println("Error: " + error.getMessage());
             }
         }while(opcion != 3);
+        leer.next();
     }
 
 
