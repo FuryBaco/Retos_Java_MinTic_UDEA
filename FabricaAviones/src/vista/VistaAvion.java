@@ -24,10 +24,9 @@ public class VistaAvion {
             opcion = Integer.parseInt( JOptionPane.showInputDialog(null, mensaje) );
             switch(opcion){
                 case 1:
-                    String[] color_tamanio = solicitar_datos_avion();
                     int pasajeros = Integer.parseInt( JOptionPane.showInputDialog(null, "Ingrese la cantidad de pasajeros") );
-                    String color = color_tamanio[0];
-                    double tamanio = Double.parseDouble(color_tamanio[1]);
+                    String color = solicitar_datos_avion()[0];
+                    double tamanio = Double.parseDouble(solicitar_datos_avion()[1]);
                     cAvion.fabricar_aviones(TipoAvion.AVION_PASAJEROS, color, tamanio, pasajeros);
                     break;
                 case 2:
