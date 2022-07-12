@@ -7,15 +7,17 @@ public class Formador extends UsuarioMoodle {
         this.escalafon = escalafon;
     }
 
-    public void calificar(Tripulante tripulanteACalificar , int k){
-            if (tripulanteACalificar.getEntregas()[k]==true){
-            tripulanteACalificar.calificaciones[k] = 5.0;
-            }
-            else if(tripulanteACalificar.getEntregas()[k]==false){
-             tripulanteACalificar.calificaciones[k] = 0;
-            }
+    public void calificar(Tripulante tripulanteACalificar, int k) {
+        double[] calificacion = tripulanteACalificar.getCalificaciones();
+        if (tripulanteACalificar.getEntregas()[k] == true) {
+            calificacion[k] = 5.0;
+            tripulanteACalificar.setCalificaciones(calificacion);
+        } else if (tripulanteACalificar.getEntregas()[k] == false) {
+            calificacion[k] = 0;
+            tripulanteACalificar.setCalificaciones(calificacion);
+        }
     }
-    
+
     public String getEscalafon() {
         return escalafon;
     }
