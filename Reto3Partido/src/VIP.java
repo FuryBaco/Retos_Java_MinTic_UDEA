@@ -1,6 +1,7 @@
 //NO ELIMINAR ESTA IMPORTACIÓN. SE REQUIERE
 //PARA LA EJECUCIÓN DEL MÉTODO 
 //generarCredencialesPrevia()
+import java.util.Arrays;
 import java.util.Random;
 
 public class VIP extends Asistente{
@@ -10,11 +11,9 @@ public class VIP extends Asistente{
     private String credencialesPrevia;
 
     //Y SU MÉTODO CONSTRUCTOR
-    public VIP(String idTiquete, String nombreCompleto, String direccionResidencia, String credenciales,
-            boolean[] pantallas, String credencialesPrevia) {
-        super(idTiquete, nombreCompleto, direccionResidencia, credenciales);
-        this.pantallas = pantallas;
-        pantallas = new boolean[3];
+    public VIP(String idTiquete, String nombreCompleto, String direccionResidencia) {
+        super(idTiquete, nombreCompleto, direccionResidencia);
+        this.pantallas = new boolean[3];
         for (int i = 0; i < pantallas.length; i++) {
             pantallas[i] = false;
         }
@@ -34,8 +33,10 @@ public class VIP extends Asistente{
     }
     public void asignarPantalla(int pantalla){
         //ESPACIO PARA ESCRIBIR LA LÓGICA DEL MÉTODO
-        //asignarPantalla() 
-        pantallas[pantalla] = !pantallas[pantalla];   
+        //asignarPantalla()
+        if(pantalla == 1 || pantalla == 2 || pantalla == 3){
+          pantallas[pantalla - 1] = !pantallas[pantalla - 1];
+        }  
     }
     
     //ESPACIO PARA INDICAR LOS MÉTODOS GETTER Y
@@ -51,6 +52,17 @@ public class VIP extends Asistente{
     }
     public void setCredencialesPrevia(String credencialesPrevia) {
         this.credencialesPrevia = credencialesPrevia;
+    }
+    @Override
+    public String toString(){
+        String info = ("ID del tiquete: " + this.idTiquete + "\n" +
+                       "Nombre del cliente: " + this.nombreCompleto + "\n" +
+                       "Direccion del cliente: " + this.direccionResidencia + "\n" +
+                       "Credenciales del cliente: " + this.credenciales + "\n" +
+                       "Estado de las pantallas del cliente" + Arrays.toString(this.pantallas) + "\n" +
+                       "Credenciales del cliente: " + this.credenciales + "\n" +
+                       "Credenciales del cliente para la previa: " + this.credencialesPrevia);
+        return info;
     }
 
 }

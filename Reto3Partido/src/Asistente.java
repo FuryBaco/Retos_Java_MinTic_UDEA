@@ -13,7 +13,7 @@ public class Asistente {
     protected String credenciales;
 
     //Y SU MÉTODO CONSTRUCTOR
-    public Asistente(String idTiquete, String nombreCompleto, String direccionResidencia, String credenciales) {
+    public Asistente(String idTiquete, String nombreCompleto, String direccionResidencia) {
         this.idTiquete = idTiquete;
         this.nombreCompleto = nombreCompleto;
         this.direccionResidencia = direccionResidencia;
@@ -57,6 +57,12 @@ public class Asistente {
     public void setCredenciales(String credenciales) {
         this.credenciales = credenciales;
     }
-    
-
+    @Override
+    public String toString(){
+        String info = ("ID del tiquete: " + this.idTiquete + "\n" +
+                       "Nombre del cliente: " + this.nombreCompleto + "\n" +
+                       "Direccion del cliente: " + this.direccionResidencia + "\n" +
+                       "Credenciales del cliente: " + this.credenciales + "\n");
+        return info;
+    }
  }
