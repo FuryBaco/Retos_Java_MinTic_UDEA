@@ -1,7 +1,7 @@
 import java.util.Arrays;
 
 public class Tripulante extends UsuarioMoodle {
-    double[] calificaciones;
+    private double[] calificaciones;
     private boolean[] entregas;
 
     public Tripulante(String nombreCompleto, String documentoIdentidad, String password, String correo, String descripcion, int n) {
@@ -27,7 +27,7 @@ public class Tripulante extends UsuarioMoodle {
     public void setCalificaciones(double[] calificaciones) {
         this.calificaciones = calificaciones;
     }
-
+    
     public boolean[] getEntregas() {
         return entregas;
     }
@@ -47,5 +47,4 @@ public class Tripulante extends UsuarioMoodle {
                        "Entregas: " + Arrays.toString(this.getEntregas()) + "\n");
         return info;
     }
-    
 }
