@@ -8,13 +8,11 @@ public class Formador extends UsuarioMoodle {
     }
 
     public void calificar(Tripulante tripulanteACalificar , int k){
-        for (int i = 0;i<k;i++){
-            if (tripulanteACalificar.getEntregas()[i]==true){
-            tripulanteACalificar.getCalificaciones()[i] = 5;
+            if (tripulanteACalificar.getEntregas()[k]==true){
+            tripulanteACalificar.calificaciones[k] = 5.0;
             }
-            else{
-             tripulanteACalificar.getCalificaciones()[i] = 0;
-            }
+            else if(tripulanteACalificar.getEntregas()[k]==false){
+             tripulanteACalificar.calificaciones[k] = 0;
             }
     }
     

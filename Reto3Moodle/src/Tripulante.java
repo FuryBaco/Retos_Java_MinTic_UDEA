@@ -1,7 +1,7 @@
 import java.util.Arrays;
 
 public class Tripulante extends UsuarioMoodle {
-    private double[] calificaciones;
+    double[] calificaciones;
     private boolean[] entregas;
 
     public Tripulante(String nombreCompleto, String documentoIdentidad, String password, String correo, String descripcion, int n) {
