@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import javax.sound.sampled.SourceDataLine;
 
@@ -14,5 +15,14 @@ public class App {
         tienda.add(new Cliente("Milena Doe", "20003456", 400, "05/07/2022", "0022"));
         tienda.add(new Cliente("Carla Di", "103789762", 3000, "05/07/2022", "0022"));
         tienda.add(new Cliente("Luz Di", "32675123", 400, "05/07/2022", "0022"));
+
+        Object[] reportes = Solution.reportes(tienda);
+        System.out.println("Promedio: " + reportes[0]);
+        System.out.println("Cliente con menor compra: " + reportes[1]);
+        System.out.println("Monto con menor compra: " + reportes[2]);
+        System.out.println("Cliente con mayor compra: " + reportes[3]);
+        System.out.println("Monto con mayor compra: " + reportes[4]);
+        System.out.println(Arrays.toString(reportes));
+
     }
 }
