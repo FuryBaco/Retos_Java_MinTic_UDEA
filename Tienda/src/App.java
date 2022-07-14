@@ -24,5 +24,10 @@ public class App {
         System.out.println("Monto con mayor compra: " + reportes[4]);
         System.out.println(Arrays.toString(reportes));
 
+        System.out.println("----------------------------------------------------");
+
+        Object[] reportes2 = Solution2.reportes(tienda);
+        System.out.println(Arrays.toString(reportes2));
+
     }
 }
