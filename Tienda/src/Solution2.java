@@ -18,6 +18,7 @@ public class Solution2{
         String cmin = "";
         int sum = 0;
         double promedio = 0;
+        int count = 0;
 
         for(Entry<String, Integer> entry: calculo.entrySet()) {
           if(entry.getValue() == max) {
@@ -34,9 +35,10 @@ public class Solution2{
 
         for(Entry<String, Integer> entry3: calculo.entrySet()) {
             sum += entry3.getValue();
+            count ++;
           }
 
         promedio = sum/tienda.size();
-        return new Object[]{promedio, cmin, min, cmax, max};   
+        return new Object[]{count, cmin, min, cmax, max};   
     }             
 }
