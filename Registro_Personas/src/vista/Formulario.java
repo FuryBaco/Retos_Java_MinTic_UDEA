@@ -3,11 +3,16 @@ package vista;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+
+import controlador.PersonaController;
 
 //Crear una clase que herede de JFrame 
 public class Formulario extends JFrame {
     //  ATRIBUTOS
+    private PersonaController controller;
+    //  ATRIBUTOS GUI
     private JLabel lblNombre;
     private JLabel lblApellido;
     private JLabel lblEdad;
@@ -22,8 +27,7 @@ public class Formulario extends JFrame {
 
     //  CONSTRUCTOR
     public Formulario() {
-        //  Llamar al constructor de la clase padre
-        super();
+        controller = new PersonaController();
         //  Inicializar los atributos
         lblNombre = new JLabel("Nombre");
         lblApellido = new JLabel("Apellido");
@@ -73,7 +77,26 @@ public class Formulario extends JFrame {
         btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 //  Poner acciones a realizar cuando se haga click en el boton
+                String nombre = txtNombre.getText();
+                String apellido = txtApellido.getText();
+                int edad = Integer.parseInt(txtEdad.getText());
+                char sexo = txtSexo.getText().charAt(0);
+                String cedula = txtCedula.getText();
+
+                controller.agregarPersona(nombre, apellido, edad, sexo, cedula);
+                JOptionPane.showMessageDialog(null, "Persona registrada");
+                //  llamar al metodo limpiarCampos()
+                limpiarCampos();
+
             }
+        //Metodo para Limpiar ls campos de texto
+        public void limpiarCampos() {
+            txtNombre.setText("");
+            txtApellido.setText("");
+            txtEdad.setText("");
+            txtSexo.setText("");
+            txtCedula.setText("");
+        }
         });
 
 
