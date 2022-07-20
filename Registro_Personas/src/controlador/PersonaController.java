@@ -23,6 +23,10 @@ public class PersonaController {
         return personas.get(index);
     }
 
+    public int getSize() {
+        return personas.size();
+    }
+
     public void setPersona(Persona persona, int index) {
         personas.set(index, persona);
     }
@@ -31,6 +35,15 @@ public class PersonaController {
     public void agregarPersona(String nombre, String apellido, int edad, char sexo, String cedula) {
         Persona persona = new Persona(nombre, apellido, edad, sexo, cedula); 
         personas.add(persona);
+    }
+
+    public Persona buscarPersona(String cedula) {
+        for (Persona persona : personas) {
+            if (persona.getCedula().equals(cedula)) {
+                return persona;
+            }
+        }
+        return null;
     }
 
     

@@ -56,6 +56,20 @@ public class Persona {
 
     public void setCedula(String cedula) {
         this.cedula = cedula;
-    }  
+    }
+
+    @Override
+    public String toString() {
+        String info = "";
+        info = "------------------------------------------------------\n";
+        info += "Nombre: " + nombre + "\n";
+        info += "Apellido: " + apellido + "\n";
+        info += "Edad: " + edad + "\n";
+        info += "Sexo: " + sexo + "\n";
+        info += "Cedula: " + cedula + "\n";
+        info += "------------------------------------------------------\n";
+        return info;
+    }
+      
     
 }

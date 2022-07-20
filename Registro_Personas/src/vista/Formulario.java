@@ -26,8 +26,14 @@ public class Formulario extends JFrame {
     private JButton btnRegistrar;
 
     //  CONSTRUCTOR
-    public Formulario() {
-        controller = new PersonaController();
+    public Formulario(PersonaController controller) {
+        this.controller = controller;
+        construirUI();
+    }
+
+    //  METODOS
+    public void construirUI() {
+        
         //  Inicializar los atributos
         lblNombre = new JLabel("Nombre");
         lblApellido = new JLabel("Apellido");
@@ -71,37 +77,48 @@ public class Formulario extends JFrame {
         //  Configurar el titulo de la ventana
         this.setTitle("Formulario");
         //  Hacer que la ventana se cierre al hacer click en el boton cerrar
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        //this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         //  MANEJADORES DE EVENTOS
+        manejadorEventosBtnRegistrar();
+
+
+        //  Hacer que la ventana se vea
+        this.setVisible(true);
+    }
+    public void manejadorEventosBtnRegistrar() {
         btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 //  Poner acciones a realizar cuando se haga click en el boton
                 String nombre = txtNombre.getText();
                 String apellido = txtApellido.getText();
-                int edad = Integer.parseInt(txtEdad.getText());
-                char sexo = txtSexo.getText().charAt(0);
+                String strEdad = txtEdad.getText();
+                String strSexo = txtSexo.getText();
                 String cedula = txtCedula.getText();
-
-                controller.agregarPersona(nombre, apellido, edad, sexo, cedula);
-                JOptionPane.showMessageDialog(null, "Persona registrada");
-                //  llamar al metodo limpiarCampos()
-                limpiarCampos();
+                if (!nombre.isEmpty() && !apellido.isEmpty() && !strEdad.isEmpty() && !strSexo.isEmpty() && !cedula.isEmpty()) {
+                    int edad = Integer.parseInt(strEdad);
+                    char sexo = strSexo.charAt(0);
+                    controller.agregarPersona(nombre, apellido, edad, sexo, cedula);
+                    JOptionPane.showMessageDialog(null, "Persona registrada");
+                    //  llamar al metodo limpiarCampos()
+                    limpiarCampos();
+                } else {
+                    JOptionPane.showMessageDialog(null, "Faltan datos");
+                }
+                
 
             }
-        //Metodo para Limpiar ls campos de texto
-        public void limpiarCampos() {
-            txtNombre.setText("");
-            txtApellido.setText("");
-            txtEdad.setText("");
-            txtSexo.setText("");
-            txtCedula.setText("");
-        }
+        
         });
+    }
 
-
-        //  Hacer que la ventana se vea
-        this.setVisible(true);
+    //Metodo para Limpiar ls campos de texto
+    public void limpiarCampos() {
+        txtNombre.setText("");
+        txtApellido.setText("");
+        txtEdad.setText("");
+        txtSexo.setText("");
+        txtCedula.setText("");
     }
 }//fin de la clase Formulario
 
