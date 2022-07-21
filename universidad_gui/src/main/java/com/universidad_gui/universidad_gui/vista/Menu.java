@@ -4,16 +4,20 @@
  */
 package com.universidad_gui.universidad_gui.vista;
 
+import com.universidad_gui.universidad_gui.controlador.UniversidadController;
+
 /**
  *
  * @author Usuario
  */
 public class Menu extends javax.swing.JFrame {
-
+    //ATRIBUTOS
+    private UniversidadController cUniversidad;
     /**
      * Creates new form Menu
      */
     public Menu() {
+        cUniversidad = new UniversidadController();
         initComponents();
     }
 
@@ -180,15 +184,15 @@ public class Menu extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        RegistroUniversidad rUniversidad = new RegistroUniversidad();
+        RegistroUniversidad rUniversidad = new RegistroUniversidad(cUniversidad);
         rUniversidad.setVisible(true);
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        ConsultarUniversidad cUniversidad = new ConsultarUniversidad();
-        cUniversidad.setVisible(true);
+        ConsultarUniversidad conUniversidad = new ConsultarUniversidad(cUniversidad);
+        conUniversidad.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed

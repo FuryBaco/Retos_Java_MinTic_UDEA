@@ -38,6 +38,15 @@ public class UniversidadController {
         universidades.add(objUniversidad);
     }
     
+    public void actualizarUniversidad (String nombre, String NIT, String telefono, String direccion){
+        int index = buscarXNIT(NIT);
+        if (index > -1){
+            getUniversidad(index).setNombre(nombre);
+            getUniversidad(index).setTelefono(telefono);
+            getUniversidad(index).setDireccion(direccion);
+        }
+    }
+    
     public int buscarXNIT(String NIT){
         int index = -1;
         for(int i = 0; i < getSizeUniversidad(); i++){
