@@ -31,10 +31,10 @@ public class Conexion {
         
         
 }
-   public static void main(String args[]) {
+  /*  public static void main(String args[]) {
        Conexion conn = new Conexion();
        Connection conexion = conn.conectar();
-   }
+   } */
 }
 
 
