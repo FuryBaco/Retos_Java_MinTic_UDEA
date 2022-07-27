@@ -171,12 +171,25 @@ public class RegistroUniversidad extends javax.swing.JFrame {
         if (!nombre.isEmpty() && !NIT.isEmpty() && !telefono.isEmpty() && !direccion.isEmpty()){
             controller.registrarUniversidad(nombre, NIT, telefono, direccion);
             JOptionPane.showMessageDialog(this,"Universidad registrada con exito");
+            limpiarCampos();
         }else{
             JOptionPane.showMessageDialog(this,"Por favor llene todos los campos");
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    
+     public void setCampos(String nombre, String NIT, String telefono, String direccion){
+        txtNombre.setText(nombre);
+        txtNIT.setText(NIT);
+        txtTelefono.setText(telefono);
+        txtDireccion.setText(direccion);
+    }
+
+    public void limpiarCampos(){
+        txtNombre.setText("");
+        txtNIT.setText("");
+        txtTelefono.setText("");
+        txtDireccion.setText("");
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

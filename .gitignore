@@ -1,0 +1,12 @@
+/notas_estudiante/nbproject/
+/notas_estudiante/target/
+/universidad_gui/target/
+/Pokemon/target/
+/CRUDSQL/target/
+/mavenproject1/target/
+
+# Ignore Gradle project-specific cache directory
+.gradle
+
+# Ignore Gradle build output directory
+build

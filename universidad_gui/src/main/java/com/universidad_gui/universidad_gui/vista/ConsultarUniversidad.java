@@ -7,6 +7,8 @@ package com.universidad_gui.universidad_gui.vista;
 import com.universidad_gui.universidad_gui.controlador.UniversidadController;
 import javax.swing.JOptionPane;
 
+import org.nuiton.web.gwt.table.DefaultTableModel;
+
 /**
  *
  * @author Usuario
@@ -191,20 +193,49 @@ public class ConsultarUniversidad extends javax.swing.JFrame {
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         // TODO add your handling code here:
         String NIT = txtNIT.getText();
-        if (!NIT.isEmpty()){
-            int index = cUniversidad.buscarXNIT(NIT);
-            if (index >= 0){
-                RegistroUniversidad registroUniversidad = new RegistroUniversidad(cUniversidad);
-                registroUniversidad.setVisible(true);
-            }else{
-                JOptionPane.showMessageDialog(this, "La universidad no existe");
-            }
-        }else{
-            JOptionPane.showMessageDialog(this, "Favor ingrese un NIT");
+        int index = cUniversidad.buscarXNIT(NIT);
+        if (!NIT.isEmpty()) {
+          // int index = cUniversidad.buscarXNIT(NIT);
+          if (index >= 0) {
+            RegistroUniversidad registroUniversidad = new RegistroUniversidad(cUniversidad);
+            String nombre = cUniversidad.getUniversidad(index).getNombre();
+            String telefono = cUniversidad.getUniversidad(index).getTelefono();
+            String direccion = cUniversidad.getUniversidad(index).getDireccion();
+            registroUniversidad.setVisible(true);
+            registroUniversidad.setCampos(nombre, NIT, telefono, direccion);
+
+          } else {
+            JOptionPane.showMessageDialog(this, "La universidad no existe");
+          }
+        } else {
+          JOptionPane.showMessageDialog(this, "Favor ingrese un NIT");
         }
     }//GEN-LAST:event_btnBuscarActionPerformed
 
-    
+    public void llenarTabla() {
+    for (int i = 0; i < cUniversidad.getSizeUniversidad(); i++) {
+      //addEmptyRow();  
+      jTable1.setValueAt(cUniversidad.getUniversidad(i).getNombre(), i, 0);
+      jTable1.setValueAt(cUniversidad.getUniversidad(i).getNIT(), i, 1);
+      jTable1.setValueAt(cUniversidad.getUniversidad(i).getTelefono(), i, 2);
+      jTable1.setValueAt(cUniversidad.getUniversidad(i).getDireccion(), i, 3);
+      //addRow(cUniversidad.getUniversidad(i).getNombre(),cUniversidad.getUniversidad(i).getNIT(),cUniversidad.getUniversidad(i).getTelefono(),cUniversidad.getUniversidad(i).getDireccion());
+      // (new Object[]{null, null, null, null})
+    }
+  }
+
+  //Add a row to JTable1
+    public void addRow(String nombre, String NIT, String telefono, String direccion) {
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+    model.addRow(new Object[]{nombre, NIT, telefono, direccion});
+    }
+
+    //Add empty row to JTable1
+    public void addEmptyRow() {
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        model.addRow(new Object[]{null, null, null, null});
+    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBuscar;

@@ -49,6 +49,7 @@ public class Menu extends JFrame {
         registrar();
         consultar();
         consultarXCedula();
+        
 
         // hacer visible la ventana
         this.setVisible(true);
